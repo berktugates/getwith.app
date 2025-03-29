@@ -1,21 +1,36 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, View, Image } from "react-native";
 import { Input, InputField, InputIcon, InputSlot } from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Eye } from "lucide-react-native";
 import { useRouter } from "expo-router";
+import { BlurView } from "expo-blur";
 
 const SignIn: React.FC = () => {
   const router = useRouter();
   return (
+    <BlurView
+        intensity={40}
+        tint="light"
+        className="bg-white/30 border border-white/50 backdrop-blur-md"
+      >
+        <Image
+          source={require("../../assets/images/ece-bg.jpg")}
+          style={{
+            position: "absolute",
+            opacity: 0.5,
+            width: "100%",
+            height: "100%",
+          }}
+        />
     <SafeAreaView>
-      <View id="root" className="h-full items-center justify-center p-16">
+      <View id="root" className="h-full items-center justify-center p-12">
         <View id="header" className="mb-6">
           <Text className="text-5xl font-bold">GetWith</Text>
         </View>
         <View id="form" className="w-full flex gap-y-6 mb-6">
           <Input
-            className="rounded-xl"
+            className="rounded-xl border-gray-600"
             variant="outline"
             size="xl"
             isDisabled={false}
@@ -25,7 +40,7 @@ const SignIn: React.FC = () => {
             <InputField type="text" placeholder="Email" />
           </Input>
           <Input
-            className="rounded-xl"
+            className="rounded-xl border-gray-600"
             variant="outline"
             size="xl"
             isDisabled={false}
@@ -34,7 +49,7 @@ const SignIn: React.FC = () => {
           >
             <InputField type="password" placeholder="Password" />
             <InputSlot>
-              <InputIcon as={Eye} className="mr-2" />
+              <InputIcon as={Eye} className="mr-2 text-gray-600" />
             </InputSlot>
           </Input>
           <Button
@@ -48,22 +63,23 @@ const SignIn: React.FC = () => {
           </Button>
         </View>
         <View id="or-divider" className="flex flex-row items-center my-4">
-          <View className="flex-1 h-px bg-gray-300" />
-          <Text className="mx-4 text-gray-500">OR</Text>
-          <View className="flex-1 h-px bg-gray-300" />
+          <View className="flex-1 h-px bg-gray-600" />
+          <Text className="mx-4 text-gray-800">OR</Text>
+          <View className="flex-1 h-px bg-gray-600" />
         </View>
         <View id="other-options"></View>
         <View id="sign-up-route" className="flex flex-row gap-x-1">
-          <Text className="text-gray-500">Don-t have an account?</Text>
+          <Text className="text-gray-800">Don-t have an account?</Text>
           <Text
             onPress={() => router.navigate("/auth/SignUp")}
-            className="text-gray-500 underline"
+            className="text-gray-800 underline"
           >
             Sign Up
           </Text>
         </View>
       </View>
     </SafeAreaView>
+    </BlurView>
   );
 };
 export default SignIn;

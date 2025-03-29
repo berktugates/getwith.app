@@ -1,43 +1,71 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
-
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import React from "react";
+import { Platform, useWindowDimensions } from "react-native";
+import { Tabs } from "expo-router";
+import { House, Search, User } from "lucide-react-native";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+  const { width, height } = useWindowDimensions();
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
+            position: "absolute",
+            bottom: height < 750 ? 35 : 55,
+            width: width / 2,
+            height: height < 750 ? 50 : 60,
+            marginLeft: (width - width / 2) / 2,
+            borderRadius: 20,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            rowGap: 6,
           },
-          default: {},
+          android: {
+            position: "absolute",
+            bottom: 25,
+            width: width / 2,
+            height: 60,
+            marginLeft: (width - width / 2) / 2,
+            borderRadius: 20,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            rowGap: 6,
+          },
         }),
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <House color={focused ? "#000" : "#9CA3AF"} size={24} />
+          ),
+          tabBarLabel: () => null,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <Search color={focused ? "#000" : "#9CA3AF"} size={24} />
+          ),
+          tabBarLabel: () => null,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <User color={focused ? "#000" : "#9CA3AF"} size={24} />
+          ),
+          tabBarLabel: () => null,
+          headerShown: false,
         }}
       />
     </Tabs>

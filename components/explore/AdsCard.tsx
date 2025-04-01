@@ -28,7 +28,7 @@ const AdsCard: React.FC<IAdsCard> = ({
       onLongPress={() => setIsAdsOpen(!isAdsOpen)}
     >
       <Card
-        className={`bg-stone-200 border border-stone-700 flex my-1 rounded-3xl ${
+        className={`bg-stone-200 flex my-1 rounded-3xl ${
           isAdsOpen ? "relative max-h-[450px]" : "h-24 justify-center"
         }`}
       >

@@ -11,7 +11,7 @@ import {
 
 const Header: React.FC = () => {
   return (
-    <View id="header" className="p-6 bg-black rounded-b-xl">
+    <View id="header" className="px-6 py-8 bg-black rounded-b-3xl">
       <View
         id="location-notification"
         className="flex flex-row items-center justify-between"

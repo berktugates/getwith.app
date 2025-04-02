@@ -7,7 +7,7 @@ import SkillCard from "./SkillCard";
 
 const UserCard: React.FC = ({ card }) => {
   return (
-    <Card key={card} className="min-h-[550] w-11/12 rounded-3xl">
+    <Card key={card} className="min-h-[550] w-11/12 rounded-3xl shadow-md">
       <View id="user-info" className="flex flex-row gap-x-2 px-4 py-3">
         <Image
           className="rounded-full"

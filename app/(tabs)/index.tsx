@@ -5,7 +5,7 @@ import Header from "@/components/home/Header";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView className="h-screen">
+    <SafeAreaView className="flex justify-center">
       <StatusBar style="dark" />
       <Header />
       <View id="content">

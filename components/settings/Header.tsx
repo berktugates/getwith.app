@@ -4,9 +4,9 @@ import { Image } from "../ui/image";
 
 const Header:React.FC = ()=>{
     return (
-        <View id="header" className="bg-black p-6">
+        <View id="header"className="mb-4">
           <View id="header-title" className="flex items-center">
-            <Text className="text-white text-2xl font-medium tracking-wider">
+            <Text className="text-black text-2xl font-semibold tracking-wider">
               Settings
             </Text>
           </View>
@@ -19,10 +19,10 @@ const Header:React.FC = ()=>{
               }}
               alt="user-photo"
             />
-            <Text className="text-white text-3xl font-normal tracking-tighter mb-1">
+            <Text className="text-black text-3xl font-normal tracking-tighter mb-1">
               Rafa Silva
             </Text>
-            <Text className="text-gray-200  font-normal tracking-tighter">
+            <Text className="text-gray-500  font-normal tracking-tighter">
               contact@rafasilva.com
             </Text>
           </View>

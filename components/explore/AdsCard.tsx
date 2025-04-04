@@ -28,8 +28,8 @@ const AdsCard: React.FC<IAdsCard> = ({
       onLongPress={() => setIsAdsOpen(!isAdsOpen)}
     >
       <Card
-        className={`bg-stone-200 flex my-1 rounded-3xl ${
-          isAdsOpen ? "relative max-h-[450px]" : "h-24 justify-center"
+        className={`bg-stone-100 border border-stone-500 flex my-1 rounded-3xl ${
+          isAdsOpen ? "relative max-h-[450px]" : "justify-center"
         }`}
       >
         <ScrollView
@@ -37,10 +37,8 @@ const AdsCard: React.FC<IAdsCard> = ({
           scrollEnabled={isAdsOpen}
         >
           <View
-            className={`flex  ${
-              isAdsOpen
-                ? "static h-full"
-                : "flex-row gap-x-2 items-center justify-between"
+            className={`flex ${
+              isAdsOpen ? "" : "flex-row gap-x-2 items-center justify-between"
             }`}
           >
             <View
@@ -55,7 +53,7 @@ const AdsCard: React.FC<IAdsCard> = ({
                 alt="ads-brand-logo"
                 className="rounded-xl"
               />
-              <View id="ads-info" className="my-4">
+              <View id="ads-info" className="">
                 <Text className={`font-bold ${isAdsOpen ? "text-xl" : ""}`}>
                   {jobTitle}
                 </Text>
@@ -70,7 +68,7 @@ const AdsCard: React.FC<IAdsCard> = ({
               <></>
             )}
             {isAdsOpen && (
-              <View id="ads-content">
+              <View id="ads-content" className="mt-4">
                 <Text>{jobDesc}</Text>
               </View>
             )}

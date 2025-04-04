@@ -6,10 +6,10 @@ const SettingsCard: React.FC = () => {
   return (
     <Card
       id="options-card"
-      className="bg-gray-100 flex flex-row items-center justify-between rounded-none"
+      className="bg-white flex flex-row items-center justify-between rounded-3xl my-2"
     >
       <View className="flex flex-row items-center  gap-x-2">
-        <View className="bg-gray-200 p-1.5 rounded-full">
+        <View className="bg-gray-300 p-1.5 rounded-full">
           <User color={"#4b5563"} />
         </View>
         <Text className="font-medium">Edit Profile</Text>

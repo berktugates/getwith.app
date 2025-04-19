@@ -1,7 +1,7 @@
 import React from "react";
-import SignIn from "./auth/SignIn";
+import Greetings from "./auth/Greetings";
 
 const index:React.FC = ()=> {
-    return <SignIn />
+    return <Greetings />
 }
 export default index;
